@@ -256,7 +256,9 @@ export function PremiumCapabilities() {
           </p>
           <button
             type="button"
-            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => {
+              window.location.href = "/contact";
+            }}
             className="inline-flex items-center gap-2 text-sm font-bold text-cyan-accent transition hover:text-white"
           >
             Ask about a service

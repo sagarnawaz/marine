@@ -119,7 +119,9 @@ export default function PremiumHero() {
           >
             <button
               type="button"
-              onClick={() => scrollTo("#contact")}
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
               className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-cyan-accent px-7 text-sm font-bold text-navy-950 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_18px_55px_rgba(78,205,196,.25)]"
             >
               Discuss your vessel

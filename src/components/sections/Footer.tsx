@@ -2,11 +2,27 @@
 
 import { HoverBorderGradientStatic } from "@/components/ui/aceternity/hover-border-gradient";
 import { siteConfig, navLinks } from "@/data/site-content";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Footer() {
   const scrollTo = (href: string) => {
+    const detailRoutes: Record<string, string> = {
+      "#who-we-are": "/who-we-are",
+      "#contact": "/contact",
+    };
+    if (detailRoutes[href]) {
+      router.push(detailRoutes[href]);
+      return;
+    }
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <footer className="relative border-t border-white/5" role="contentinfo">

@@ -1,19 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { FloatingNav } from "@/components/ui/aceternity/floating-navbar";
 import { MovingBorderButton } from "@/components/ui/aceternity/moving-border";
 import { navLinks, siteConfig } from "@/data/site-content";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
+    const detailRoutes: Record<string, string> = {
+      "#who-we-are": "/who-we-are",
+      "#contact": "/contact",
+    };
+    if (detailRoutes[href]) {
+      router.push(detailRoutes[href]);
+      return;
+    }
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const navItems = navLinks.map((link) => ({
+  const navItems = navLinks.filter((link) => link.href !== "#contact").map((link) => ({
     name: link.label,
     link: link.href,
     onClick: (e: React.MouseEvent) => {
@@ -23,13 +39,17 @@ export default function Header() {
   }));
 
   const logo = (
-    <a
-      href="#hero"
+    <Link
+      href="/"
       className="flex items-center gap-2.5"
       aria-label={`${siteConfig.name} - Home`}
       onClick={(e) => {
         e.preventDefault();
-        handleNavClick("#hero");
+        if (pathname === "/") {
+          handleNavClick("#hero");
+        } else {
+          router.push("/");
+        }
       }}
     >
       <div className="flex h-8 w-8 items-center justify-center rounded-full border border-ocean-500/30 bg-navy-800/80">
@@ -41,7 +61,7 @@ export default function Header() {
       <span className="hidden font-display text-sm font-semibold text-white sm:block">
         MRS
       </span>
-    </a>
+    </Link>
   );
 
   const cta = (
@@ -83,7 +103,7 @@ export default function Header() {
           className="fixed inset-x-4 top-20 z-[4999] rounded-2xl border border-white/10 bg-navy-950/95 p-4 backdrop-blur-xl lg:hidden"
           aria-label="Mobile navigation"
         >
-          {navLinks.map((link) => (
+          {navLinks.filter((link) => link.href !== "#contact").map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -96,6 +116,16 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("#contact");
+            }}
+            className="block py-3.5 text-sm font-semibold text-cyan-accent hover:text-white"
+          >
+            Contact Us
+          </a>
         </nav>
       )}
     </>
