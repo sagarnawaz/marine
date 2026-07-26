@@ -51,10 +51,10 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] px-3 pt-3 sm:px-5">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-white/80 bg-[#eaf4f6]/95 px-3 shadow-2xl shadow-navy-950/25 backdrop-blur-xl sm:px-4">
-        <Link href="/" className="flex items-center rounded-xl p-1" aria-label="Marine Registration Services home">
-          <Image src="/images/logo.png" alt="Marine Registration Services" width={180} height={48} priority className="h-9 w-auto object-contain" />
+    <header className="fixed inset-x-0 top-0 z-[100] px-2 pt-2 sm:px-5 sm:pt-3">
+      <div className="mx-auto flex h-14 min-w-0 max-w-7xl items-center justify-between gap-2 overflow-visible rounded-2xl border border-white/80 bg-[#eaf4f6]/95 px-2.5 shadow-2xl shadow-navy-950/25 backdrop-blur-xl sm:h-16 sm:px-4">
+        <Link href="/" className="flex min-w-0 shrink items-center rounded-xl p-1" aria-label="Marine Registration Services home">
+          <Image src="/images/logo.png" alt="Marine Registration Services" width={180} height={48} priority className="h-8 w-auto max-w-[9.5rem] object-contain sm:h-9 sm:max-w-none" />
         </Link>
 
         <nav aria-label="Primary navigation" className="hidden items-center rounded-full border border-navy-950/10 bg-navy-950/[.045] p-1 xl:flex">
@@ -81,14 +81,14 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <Link href="/quote-request" className={`hidden rounded-full px-4 py-2.5 text-xs font-bold transition duration-300 sm:inline-flex ${isActivePath(pathname, "/quote-request") ? "bg-navy-950 text-white" : "bg-cyan-accent text-navy-950 hover:-translate-y-0.5 hover:bg-navy-950 hover:text-white"}`}>Request a quote</Link>
-          <button type="button" className="grid h-10 w-10 place-items-center rounded-xl text-navy-950 transition hover:bg-navy-950/8 xl:hidden" onClick={() => setIsMobileMenuOpen((value) => !value)} aria-label="Toggle navigation" aria-expanded={isMobileMenuOpen}>{isMobileMenuOpen ? <IconX size={21}/> : <IconMenu2 size={21}/>}</button>
+          <button type="button" className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-navy-950 transition hover:bg-navy-950/8 xl:hidden" onClick={() => setIsMobileMenuOpen((value) => !value)} aria-label="Toggle navigation" aria-expanded={isMobileMenuOpen}>{isMobileMenuOpen ? <IconX size={21}/> : <IconMenu2 size={21}/>}</button>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <nav aria-label="Mobile navigation" className="mx-auto mt-2 max-w-7xl rounded-2xl border border-white/80 bg-[#eaf4f6]/98 p-3 shadow-2xl shadow-navy-950/20 backdrop-blur-xl xl:hidden">
+        <nav aria-label="Mobile navigation" className="mx-auto mt-2 max-h-[calc(100dvh-5rem)] max-w-7xl overflow-y-auto rounded-2xl border border-white/80 bg-[#eaf4f6]/98 p-2.5 shadow-2xl shadow-navy-950/20 backdrop-blur-xl sm:p-3 xl:hidden">
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {mobileLinks.map(([label, href]) => <Link key={href} href={href} onClick={() => setIsMobileMenuOpen(false)} className={`rounded-xl px-3 py-3 text-center text-sm font-semibold transition ${isActivePath(pathname, href) ? "bg-navy-950 text-white" : "bg-navy-950/[.045] text-navy-950/75 hover:bg-navy-950/10 hover:text-navy-950"}`}>{label}</Link>)}
           </div>

@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main id="main-content">
+      <main id="main-content" className="min-w-0 overflow-x-clip">
         <PremiumHero />
         <Marquee items={MARQUEE_ITEMS} />
         <MarineRouteVisual />

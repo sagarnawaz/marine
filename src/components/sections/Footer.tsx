@@ -40,7 +40,6 @@ export default function Footer() {
         </div>
       </div>
       <div className="relative border-t border-white/[.08]"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-5 text-xs text-silver-300/45 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p><div className="flex items-center gap-3">{socialLinks.map(([label, href, Icon]) => <a key={label} href={href} aria-label={label} className="grid h-8 w-8 place-items-center rounded-full border border-white/10 text-silver-300/60 transition hover:border-cyan-accent/50 hover:text-cyan-accent"><Icon size={15}/></a>)}</div></div></div>
-      <a href={`https://wa.me/${siteConfig.whatsappNumber}`} aria-label="Chat with us on WhatsApp" className="fixed bottom-20 right-4 z-[110] grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-navy-950 shadow-[0_14px_34px_rgba(37,211,102,.25)] transition hover:scale-105 sm:bottom-5 sm:right-5"><IconBrandWhatsapp size={29} stroke={2.1}/></a>
     </footer>
   );
 }
