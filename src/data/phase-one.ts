@@ -1,0 +1,109 @@
+export type Service = { slug: string; title: string; summary: string; category: string };
+
+export const services: Service[] = [
+  ["vessel-registration", "Vessel Registration & Renewal", "Clear handling of new registrations, transfers and annual renewals.", "Registration"],
+  ["trim-stability", "Trim & Stability Booklets", "Practical stability documentation prepared for review.", "Engineering"],
+  ["inclining-experiments", "Inclining Experiments", "Measured onboard tests supported by concise reporting.", "Engineering"],
+  ["load-tests", "Load Tests", "Verification programmes coordinated around your vessel schedule.", "Engineering"],
+  ["general-arrangements", "General Arrangements", "Operational drawings that make vessel layouts clear.", "Engineering"],
+  ["lines-plans", "Lines Plans & Offset Tables", "Technical hull documentation for new and existing vessels.", "Engineering"],
+  ["tank-calibrations", "Tank Calibrations", "Accurate capacity tables and calibration support.", "Engineering"],
+  ["safety-equipment", "Safety Equipment Supply", "Essential safety equipment sourced for compliance.", "Safety"],
+  ["marine-insurance", "Marine Insurance", "Support navigating appropriate marine cover.", "Compliance"],
+  ["fire-safety-plans", "Fire & Safety Plans", "Plans and documentation designed for authority review.", "Safety"],
+  ["freeboard-calculations", "Freeboard Calculations", "Clear freeboard assessment and supporting calculations.", "Engineering"],
+  ["equipment-number", "Equipment Number Calculations", "Technical calculations tailored to vessel particulars.", "Engineering"],
+  ["resistance-powering", "Resistance & Powering", "Performance calculations to support design decisions.", "Engineering"],
+  ["damage-stability", "Damage Stability", "Analysis to help owners understand vessel resilience.", "Engineering"],
+  ["tonnage-calculations", "Tonnage Calculations", "Measured tonnage documentation for registration needs.", "Registration"],
+  ["naval-architecture", "Naval Architecture & Seaman Affairs", "Technical expertise from initial concept to operational paperwork.", "Engineering"],
+  ["draft-survey", "Lightship & Draft Survey", "Reliable survey coordination and reporting.", "Survey"],
+].map(([slug, title, summary, category]) => ({ slug, title, summary, category }));
+
+export interface ServiceDirectoryItem {
+  title: string;
+  description: string;
+  href: string;
+}
+
+export interface ServiceDirectoryCategory {
+  title: string;
+  description: string;
+  services: ServiceDirectoryItem[];
+}
+
+export const serviceDirectoryCategories: ServiceDirectoryCategory[] = [
+  { title: "Registration & documentation", description: "New registration, renewal, ownership transfer and flag services for yachts, boats and commercial vessels.", services: [
+    { title: "Yacht registration", description: "First-time registration for privately owned yachts in the UAE.", href: "/services/yacht-registration" },
+    { title: "Boat registration", description: "Registration support for recreational boats and tenders.", href: "/services/boat-registration" },
+    { title: "Commercial vessel registration", description: "Registration for commercial vessels, including working craft and workboats.", href: "/services/commercial-vessel-registration" },
+    { title: "Registration renewal", description: "Timely renewal of an existing vessel registration certificate.", href: "/services/vessel-registration" },
+    { title: "Ownership transfer", description: "Documentation support for buying or selling a registered vessel.", href: "/services/vessel-registration" },
+    { title: "Foreign flag permit", description: "Re-flagging and permit support for foreign-registered vessels operating in the UAE.", href: "/services/vessel-registration" },
+  ] },
+  { title: "Survey & inspection", description: "Condition, pre-purchase, annual and safety-equipment surveys coordinated with qualified surveyors.", services: [
+    { title: "Marine survey", description: "Pre-purchase, insurance, condition and damage surveys carried out by qualified surveyors.", href: "/services/draft-survey" },
+    { title: "Annual survey", description: "Recurring annual condition survey to maintain registration and insurance validity.", href: "/services/draft-survey" },
+    { title: "Safety equipment inspection", description: "Inspection and certification of life-saving and fire-fighting equipment on board.", href: "/services/safety-equipment" },
+    { title: "Annual inspection", description: "Recurring regulatory inspection required to maintain a vessel's operating status.", href: "/services/safety-equipment" },
+  ] },
+  { title: "Technical & engineering", description: "Naval architecture, drawings, stability documentation and classification coordination.", services: [
+    { title: "Naval architecture", description: "Technical naval architecture support for modifications, refits and new-build projects.", href: "/services/naval-architecture" },
+    { title: "Technical drawings", description: "General arrangement, structural and systems drawings for registration, class or refit purposes.", href: "/services/general-arrangements" },
+    { title: "Stability booklet", description: "Stability documentation for classification, commercial certification or authority approval.", href: "/services/trim-stability" },
+    { title: "Classification services", description: "Coordination with classification societies for surveys, certification and compliance.", href: "/services/naval-architecture" },
+  ] },
+  { title: "Compliance & licensing", description: "Radio licensing and vessel identification support aligned with UAE requirements.", services: [
+    { title: "TDRA radio license", description: "Ship radio station licensing with the UAE's Telecommunications and Digital Government Regulatory Authority.", href: "/services/equipment-number" },
+    { title: "MMSI registration", description: "Maritime Mobile Service Identity registration for VHF, DSC and AIS equipment.", href: "/services/equipment-number" },
+  ] },
+  { title: "Insurance & support", description: "Insurance coordination and practical administrative support for vessel owners and operators.", services: [
+    { title: "Yacht insurance", description: "Insurance coordination for yacht and vessel owners, brokers and ship-management companies.", href: "/services/marine-insurance" },
+    { title: "Berthing assistance", description: "Support securing and documenting marina berths for your vessel.", href: "/services/vessel-registration" },
+  ] },
+];
+
+export interface ServiceDetailPage {
+  slug: string;
+  title: string;
+  intro: string;
+  category: string;
+  documentCount: string;
+  overview: string[];
+  benefits: string[];
+  process: [string, string][];
+  documents: string[];
+  questions: [string, string][];
+  relatedServices: ServiceDirectoryItem[];
+}
+
+export const serviceDetailPages: ServiceDetailPage[] = [
+  { slug: "yacht-registration", title: "Yacht Registration", intro: "End-to-end registration with the relevant maritime authority, from document preparation to certificate issuance.", category: "Registration & documentation", documentCount: "5 documents typically required", overview: ["Registering a yacht in the UAE establishes its nationality, links it to a maritime authority for safety and compliance oversight, and is required before the vessel can legally be operated, insured or berthed at most marinas.", "We manage the registration process on your behalf—preparing the application, coordinating with the relevant authority, and handling survey or inspection requirements before the certificate is issued."], benefits: ["One case officer manages the full application from start to finish.", "Direct authority coordination reduces back-and-forth.", "Document preparation is checked against current authority requirements.", "Survey coordination is arranged where a pre-registration inspection is required."], process: [["Document review", "We review proof of ownership, vessel specifications and identification documents."], ["Application preparation", "Your registration application is prepared and cross-checked before submission."], ["Authority submission", "The application is lodged with the relevant maritime authority and tracked on your behalf."], ["Inspection coordination", "Where required, we schedule and coordinate a physical inspection or survey."], ["Certificate issuance", "Once approved, we collect the registration certificate and pass the original documents to you."]], documents: ["Proof of ownership (bill of sale or builder's certificate)", "Passport or Emirates ID of the owner", "Vessel specifications (length, tonnage, engine details)", "Previous registration or deletion certificate, if previously registered elsewhere", "Proof of UAE address or company trade licence, where applicable"], questions: [["Which authority registers my yacht — Dubai or Abu Dhabi?", "The correct authority depends on your vessel, ownership profile and intended operating location. We confirm the route after reviewing the particulars."], ["Can a foreign-flagged yacht be registered in the UAE?", "Yes, subject to the appropriate ownership, deletion and authority requirements. We can advise on the right transfer route."], ["Do I need a survey before registering?", "Some registrations require an inspection or survey. We confirm this during the document review and coordinate it where needed."]], relatedServices: [{ title: "Boat registration", description: "Registration support for smaller recreational boats and tenders.", href: "/services/boat-registration" }, { title: "Ownership transfer", description: "Documentation support for buying or selling a registered vessel.", href: "/services/vessel-registration" }, { title: "Foreign flag permit", description: "Re-flagging and permit support for foreign-registered vessels.", href: "/services/vessel-registration" }] },
+  { slug: "boat-registration", title: "Boat Registration", intro: "The same authority-managed registration process as yacht registration, sized to smaller recreational craft.", category: "Registration & documentation", documentCount: "4 documents typically required", overview: ["Boats and tenders below a yacht's typical size threshold still require registration before they can be legally operated or kept at most marinas. The process is administratively similar to yacht registration, though documentation requirements are usually lighter.", "We handle document preparation and authority submission the same way as for larger vessels, so owners of smaller craft receive one point of contact and a clear route from start to finish."], benefits: ["Same case-officer model as our larger-vessel registrations.", "Streamlined document set appropriate to smaller recreational craft.", "Direct authority coordination without unnecessary office visits.", "Renewal reminders once registration is active."], process: [["Document review", "We confirm ownership documents and vessel details against the authority's requirements for smaller craft."], ["Application preparation", "Your application is prepared and checked before submission."], ["Authority submission", "The application is lodged and tracked through to approval."], ["Certificate issuance", "The registration certificate is collected and passed to you."]], documents: ["Proof of ownership (bill of sale or invoice)", "Passport or Emirates ID of the owner", "Boat specifications (length, engine details)", "Proof of UAE address, where applicable"], questions: [["What counts as a boat rather than a yacht for registration purposes?", "Classification can vary by authority and vessel particulars. We confirm the correct registration route after reviewing your boat details."], ["Do jet skis need to be registered the same way?", "Personal watercraft can have separate requirements. Contact us with the make, length and intended operating location."], ["How long does boat registration usually take?", "Timing depends on the completeness of the documentation and the relevant authority review." ]], relatedServices: [{ title: "Yacht registration", description: "First-time registration for privately owned yachts in the UAE.", href: "/services/yacht-registration" }, { title: "Safety equipment inspection", description: "Inspection and certification of life-saving and fire-fighting equipment.", href: "/services/safety-equipment" }, { title: "Ownership transfer", description: "Documentation support for buying or selling a registered vessel.", href: "/services/vessel-registration" }] },
+  { slug: "commercial-vessel-registration", title: "Commercial Vessel Registration", intro: "Registration handled to commercial-vessel standards, including the additional certification commercial operation typically requires.", category: "Registration & documentation", documentCount: "5 documents typically required", overview: ["Vessels operated commercially—charter yachts, workboats, crew boats and similar craft—are generally subject to a higher documentation and inspection standard than privately owned recreational vessels, reflecting the additional safety obligations of carrying paying passengers or cargo.", "We coordinate registration alongside the certification commercial operation usually requires, so the vessel is registered and compliant without a separate, disconnected process."], benefits: ["Registration coordinated alongside commercial operating certification.", "Experience with charter, workboat and crew-transfer vessel categories.", "One point of contact across registration and survey requirements.", "Support for fleet operators registering multiple commercial vessels."], process: [["Operating profile review", "We confirm how the vessel will be commercially operated, as this determines the certification and survey standard that applies."], ["Document and survey coordination", "Registration documents are prepared alongside the survey or inspection commercial operation requires."], ["Authority submission", "The application is lodged with the relevant maritime authority."], ["Certification review", "We confirm the vessel meets commercial certification requirements attached to its registration."], ["Certificate issuance", "Registration and accompanying commercial certificates are issued."]], documents: ["Proof of ownership and, where applicable, company trade licence", "Vessel specifications and general arrangement drawings", "Intended commercial use (charter, crew transfer, workboat, etc.)", "Previous registration or deletion certificate, if applicable", "Crew certification details, where relevant to the vessel's operation"], questions: [["Is a commercial vessel survey different from a private yacht survey?", "Commercial operation normally has additional safety and certification requirements. We identify the applicable survey route before submission."], ["Can an existing recreational yacht be re-registered as commercial?", "This can be possible subject to the vessel meeting the relevant commercial requirements. We can review the conversion route."], ["Do you register fleets of commercial vessels?", "Yes. We support operators with coordinated registrations, surveys and documentation across multiple vessels."]], relatedServices: [{ title: "Marine survey", description: "Condition, insurance and damage surveys carried out by qualified surveyors.", href: "/services/draft-survey" }, { title: "Safety equipment inspection", description: "Inspection and certification of on-board safety equipment.", href: "/services/safety-equipment" }, { title: "Classification services", description: "Classification coordination for surveys, certification and compliance.", href: "/services/naval-architecture" }] },
+];
+
+export const industries = [
+  ["private-yacht-owners", "Private Yacht Owners", "Confident ownership starts with paperwork that is clear, timely and handled end-to-end."],
+  ["commercial-vessel-owners", "Commercial Vessel Owners", "Keep your fleet moving with coordinated registrations, surveys and operational compliance."],
+  ["marine-companies", "Marine Companies", "A responsive technical partner for operators, shipyards and maritime businesses."],
+  ["yacht-brokers", "Yacht Brokers", "Make every handover smoother with registration and documentation support."],
+  ["charter-companies", "Charter Companies", "Stay ready for guests, authorities and the next season with proactive compliance."],
+].map(([slug, title, summary]) => ({ slug, title, summary }));
+
+export const blogPosts = [
+  ["planning-a-uae-yacht-registration", "Planning a UAE yacht registration: a practical starting point", "Registration", "A simple way to prepare documents, inspections and timing before you submit."],
+  ["when-to-review-vessel-certificates", "When to review your vessel certificates", "Compliance", "A useful annual checklist for owners and fleet teams."],
+  ["stability-booklet-explained", "What a stability booklet helps you understand", "Engineering", "The technical document explained in straightforward language."],
+].map(([slug, title, category, excerpt]) => ({ slug, title, category, excerpt }));
+
+export const simplePages: Record<string, { eyebrow: string; title: string; intro: string; cards: [string, string][] }> = {
+  "about-us": { eyebrow: "About MRS", title: "A reliable route through maritime requirements.", intro: "Since 2011, Marine Registration Services LLC has supported owners, operators and marine businesses across the UAE with practical registration, compliance and technical guidance.", cards: [["Local knowledge", "UAE authority coordination supported by clear communication."], ["Technical depth", "Registration expertise backed by naval architecture know-how."], ["Personal service", "One responsive team from the first checklist to final delivery."]] },
+  "why-choose-us": { eyebrow: "Why MRS", title: "Details handled. Progress protected.", intro: "Our work makes complex marine administration feel organised, visible and manageable.", cards: [["Focused expertise", "Marine services are all we do."], ["Clear next steps", "Know what is required and what happens next."], ["End-to-end support", "From a single certificate to the broader compliance route."]] },
+  "our-process": { eyebrow: "Our process", title: "A simple route, carefully managed.", intro: "We begin by understanding your vessel and end by delivering the documents needed to move forward.", cards: [["01 — Review", "We check particulars and identify the right route."], ["02 — Prepare", "Documents, surveys and authority requirements are coordinated."], ["03 — Deliver", "We follow through to approval and handover."]] },
+  "our-partners": { eyebrow: "Partners & certifications", title: "Connected to the right maritime ecosystem.", intro: "We work alongside authorities, surveyors, insurers and technical specialists to keep every instruction moving.", cards: [["Authorities", "Guidance aligned with relevant UAE maritime bodies."], ["Technical partners", "Survey and engineering support when it matters."], ["Industry network", "A dependable circle of specialists for related needs."]] },
+  careers: { eyebrow: "Careers", title: "Build a career that keeps the maritime world moving.", intro: "We welcome thoughtful, detail-oriented people who want to make a practical difference for marine clients.", cards: [["Registration coordinator", "Client-facing role supporting applications and renewals."], ["Marine engineer", "Technical role supporting documentation and vessel studies."], ["Send your CV", "Introduce yourself at info@marine.ae."]] },
+  "privacy-policy": { eyebrow: "Legal", title: "Privacy Policy", intro: "We use information you share with us only to respond to enquiries and provide requested services. This placeholder policy will be replaced by the client’s final legal text.", cards: [["Information", "Contact and vessel details supplied through our forms."], ["Use", "To respond, prepare services and improve communication."], ["Contact", "Write to our team for privacy enquiries."]] },
+  "terms-conditions": { eyebrow: "Legal", title: "Terms & Conditions", intro: "This is a presentation-ready placeholder for final legal terms. Service scope, fees and timing are confirmed in writing for each instruction.", cards: [["Services", "Defined in the relevant proposal or engagement."], ["Client information", "Accurate documentation is required for timely progress."], ["Questions", "Contact us before relying on these placeholder terms."]] },
+  "cookie-policy": { eyebrow: "Legal", title: "Cookie Policy", intro: "This placeholder explains that cookies may be used to make the website function and understand visits. A final cookie policy will be supplied before launch.", cards: [["Essential", "Support core website functionality."], ["Analytics", "Help understand how visitors use the site."], ["Choices", "Browser settings can manage cookie preferences."]] },
+};

@@ -20,6 +20,11 @@ export function buildMetadata(): Metadata {
       "maritime services",
     ],
     alternates: { canonical: "/" },
+    icons: {
+      icon: "/icon.svg",
+      shortcut: "/favicon.ico",
+      apple: "/icon.svg",
+    },
     openGraph: {
       title: siteConfig.legalName,
       description,

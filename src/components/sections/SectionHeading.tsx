@@ -22,6 +22,7 @@ export default function SectionHeading({
 
   return (
     <div className={`relative ${alignClass} ${className}`}>
+      <MaritimeDecoration position="left" symbol="anchor" />
       {index && (
         <span
           className={`section-index absolute -top-8 font-display ${
@@ -35,7 +36,7 @@ export default function SectionHeading({
         </span>
       )}
 
-      <div className="relative max-w-3xl">
+      <div className={`relative max-w-3xl ${align === "center" ? "mx-auto" : ""}`}>
         {label && (
           <div
             className={`mb-5 flex items-center gap-3 ${
@@ -60,3 +61,4 @@ export default function SectionHeading({
     </div>
   );
 }
+import MaritimeDecoration from "@/components/ui/MaritimeDecoration";

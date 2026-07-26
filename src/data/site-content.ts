@@ -1,10 +1,12 @@
 export const siteConfig = {
   name: "Marine Registration Services",
-  legalName: "Marine Registration Services LLC",
+  legalName: "Marine Registration Services (L.L.C.)",
   tagline: "Taking Care of your Maritime needs Since 2011",
-  phone: "+971 4 123 4567",
-  email: "info@marineregistrationservices.ae",
-  address: "Dubai Maritime City, Dubai, United Arab Emirates",
+  phone: "+971 (4) 386 6777",
+  fax: "+971 (4) 385 7761",
+  email: "info@marine.ae",
+  address: "Office 213, 2nd floor, Dubai Real Estate Centre Bldg., Al Mina St., Al Hudaiba, P.O. Box 283086, Dubai, United Arab Emirates",
+  whatsappNumber: "97143866777",
   yearFounded: 2011,
 };
 

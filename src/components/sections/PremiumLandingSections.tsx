@@ -16,6 +16,8 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 
+import MaritimeDecoration from "@/components/ui/MaritimeDecoration";
+
 const ease = [0.22, 1, 0.36, 1] as const;
 const marineImages = {
   hero: "/images/marine-hero.png",
@@ -128,6 +130,7 @@ export function PremiumStory() {
   return (
     <section id="who-we-are" className="relative overflow-hidden py-24 sm:py-28 lg:py-36">
       <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-ocean-500/[.08] blur-[110px]" />
+      <MaritimeDecoration symbol="compass" />
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-6 lg:grid-cols-[.92fr_1.08fr] lg:items-center lg:gap-24 lg:px-8">
         <Reveal className="relative">
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.03] p-2">
@@ -158,25 +161,25 @@ export function PremiumStory() {
           </motion.div>
         </Reveal>
 
-        <Reveal>
+        <Reveal className="text-center">
           <span className="text-[11px] font-bold uppercase tracking-[.24em] text-cyan-accent">
             Who we are
           </span>
-          <h2 className="mt-5 max-w-[12ch] font-display text-[clamp(2.55rem,5vw,5rem)] font-bold leading-[.98] tracking-[-.045em] text-white">
+          <h2 className="mx-auto mt-5 max-w-[12ch] font-display text-[clamp(2.55rem,5vw,5rem)] font-bold leading-[.98] tracking-[-.045em] text-white">
             The calm hand behind every clearance.
           </h2>
-          <p className="mt-7 max-w-2xl text-base leading-8 text-silver-300/75 sm:text-lg">
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-silver-300/75 sm:text-lg">
             {`Since 2011, we have helped owners and operators turn complex maritime requirements into a clear, managed route. Our work connects naval engineering, documentation and authority liaison—so nothing gets lost between the drawing board and the water.`}
           </p>
 
-          <div className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+          <div className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
             {[
               ["01", "Dubai-based expertise"],
               ["02", "Local & international vessels"],
               ["03", "Technical documentation"],
               ["04", "Authority coordination"],
             ].map(([number, value]) => (
-              <div key={number} className="bg-navy-950/95 p-4 sm:p-5">
+              <div key={number} className="bg-navy-950/95 p-4 text-center sm:p-5">
                 <span className="text-[10px] font-bold tracking-[.18em] text-ocean-400">
                   {number}
                 </span>
@@ -196,17 +199,18 @@ export function PremiumCapabilities() {
   return (
     <section id="services" className="relative overflow-hidden border-y border-white/[.06] bg-navy-900/35 py-24 sm:py-28 lg:py-36">
       <div className="absolute inset-0 maritime-grid opacity-20" />
+      <MaritimeDecoration position="left" symbol="anchor" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <div>
             <span className="text-[11px] font-bold uppercase tracking-[.24em] text-cyan-accent">
               Complete capability
             </span>
-            <h2 className="mt-5 max-w-[13ch] font-display text-[clamp(2.55rem,5vw,4.75rem)] font-bold leading-[.98] tracking-[-.045em] text-white">
+            <h2 className="mx-auto mt-5 max-w-[13ch] font-display text-[clamp(2.55rem,5vw,4.75rem)] font-bold leading-[.98] tracking-[-.045em] text-white">
               From first drawing to final certificate.
             </h2>
           </div>
-          <p className="max-w-md text-base leading-7 text-silver-300/70">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-silver-300/70">
             Every service is connected. That means fewer hand-offs, cleaner
             documentation and a faster route through review.
           </p>
@@ -223,7 +227,7 @@ export function PremiumCapabilities() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: (index % 4) * 0.07, duration: 0.7, ease }}
                 whileHover={{ y: -8 }}
-                className="group relative min-h-64 overflow-hidden rounded-2xl border border-white/[.08] bg-navy-950/75 p-6 transition-colors hover:border-cyan-accent/35"
+                className="group relative min-h-52 overflow-hidden rounded-2xl border border-white/[.08] bg-navy-950/75 p-5 transition-colors hover:border-cyan-accent/35 sm:min-h-64 sm:p-6"
               >
                 <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-ocean-500/0 blur-3xl transition-colors duration-500 group-hover:bg-ocean-500/15" />
                 <div className="flex items-start justify-between">
@@ -246,7 +250,7 @@ export function PremiumCapabilities() {
           })}
         </div>
 
-        <Reveal className="mt-8 flex flex-col gap-4 rounded-2xl border border-white/[.08] bg-white/[.035] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+        <Reveal className="mx-auto mt-8 flex max-w-4xl flex-col items-center gap-4 rounded-2xl border border-white/[.08] bg-white/[.035] p-5 text-center sm:p-6">
           <p className="text-sm text-white/65">
             Also covering{" "}
             <span className="font-semibold text-white">
@@ -273,14 +277,15 @@ export function PremiumCapabilities() {
 export function PremiumVesselRoutes() {
   return (
     <section className="relative py-24 sm:py-28 lg:py-36" aria-labelledby="vessel-routes-title">
+      <MaritimeDecoration symbol="compass" />
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-        <Reveal>
+        <Reveal className="mx-auto max-w-3xl text-center">
           <span className="text-[11px] font-bold uppercase tracking-[.24em] text-cyan-accent">
             Choose your route
           </span>
           <h2
             id="vessel-routes-title"
-            className="mt-5 max-w-[14ch] font-display text-[clamp(2.55rem,5vw,4.75rem)] font-bold leading-[.98] tracking-[-.045em] text-white"
+            className="mx-auto mt-5 max-w-[14ch] font-display text-[clamp(2.55rem,5vw,4.75rem)] font-bold leading-[.98] tracking-[-.045em] text-white"
           >
             Different vessels. One clear standard.
           </h2>
@@ -347,19 +352,20 @@ export function PremiumVesselRoutes() {
 export function PremiumEngineering() {
   return (
     <section className="relative overflow-hidden border-y border-white/[.06] bg-navy-900/30 py-24 sm:py-28 lg:py-36">
+      <MaritimeDecoration position="left" symbol="anchor" />
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8">
-        <Reveal>
+        <Reveal className="text-center">
           <span className="text-[11px] font-bold uppercase tracking-[.24em] text-cyan-accent">
             Engineering desk
           </span>
-          <h2 className="mt-5 max-w-[12ch] font-display text-[clamp(2.55rem,5vw,4.75rem)] font-bold leading-[.98] tracking-[-.045em] text-white">
+          <h2 className="mx-auto mt-5 max-w-[12ch] font-display text-[clamp(2.55rem,5vw,4.75rem)] font-bold leading-[.98] tracking-[-.045em] text-white">
             Precision you can put before an authority.
           </h2>
-          <p className="mt-7 max-w-xl text-base leading-8 text-silver-300/70">
+          <p className="mx-auto mt-7 max-w-xl text-base leading-8 text-silver-300/70">
             Our naval architecture work is built to be reviewed, understood and
             approved—not simply made to look complete.
           </p>
-          <ul className="mt-9 grid gap-3 sm:grid-cols-2" role="list">
+          <ul className="mx-auto mt-9 grid max-w-lg gap-3 text-left sm:grid-cols-2" role="list">
             {[
               "Stability & hydrostatics",
               "General arrangements",

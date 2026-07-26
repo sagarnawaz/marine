@@ -16,6 +16,7 @@ const HERO_IMAGE = {
   alt: "Luxury motor yacht cruising near Dubai at blue hour",
 };
 
+
 export default function PremiumHero() {
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -60,7 +61,8 @@ export default function PremiumHero() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,.55)_0%,transparent_35%,rgba(2,6,23,.8)_100%)]" />
       <div className="absolute inset-0 opacity-[.12] [background-image:linear-gradient(rgba(110,196,216,.25)_1px,transparent_1px),linear-gradient(90deg,rgba(110,196,216,.25)_1px,transparent_1px)] [background-size:72px_72px]" />
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-5 pb-28 pt-28 sm:px-6 lg:px-8">
+
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center px-5 pb-24 pt-24 sm:px-6 sm:pb-28 sm:pt-28 lg:px-8">
         <div className="w-full max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -144,7 +146,7 @@ export default function PremiumHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.05, duration: 0.9 }}
-            className="mt-12 grid max-w-2xl grid-cols-3 divide-x divide-white/10 border-y border-white/10 py-5"
+            className="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-white/10 border-y border-white/10 py-4 sm:mt-12 sm:py-5"
           >
             {[
               ["14+", "Years in UAE"],
@@ -152,7 +154,7 @@ export default function PremiumHero() {
               ["6", "Authority links"],
             ].map(([value, label]) => (
               <div key={label} className="px-3 first:pl-0 sm:px-6 sm:first:pl-0">
-                <strong className="font-display text-2xl text-white sm:text-3xl">
+                <strong className="font-display text-xl text-white sm:text-3xl">
                   {value}
                 </strong>
                 <span className="mt-1 block text-[9px] font-bold uppercase tracking-[.16em] text-white/45 sm:text-[10px]">

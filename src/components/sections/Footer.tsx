@@ -1,100 +1,46 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
 
-import { HoverBorderGradientStatic } from "@/components/ui/aceternity/hover-border-gradient";
-import { siteConfig, navLinks } from "@/data/site-content";
-import { usePathname, useRouter } from "next/navigation";
+import { IconArrowUpRight, IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandWhatsapp, IconMail, IconPhone } from "@tabler/icons-react";
+
+import MaritimeDecoration from "@/components/ui/MaritimeDecoration";
+import { siteConfig } from "@/data/site-content";
+
+const footerGroups = [
+  ["Company", [["About us", "/about-us"], ["Why choose us", "/why-choose-us"], ["Our process", "/our-process"], ["Careers", "/careers"]]],
+  ["Services", [["All services", "/services"], ["Registration", "/services/vessel-registration"], ["Naval architecture", "/services/naval-architecture"], ["Request a quote", "/quote-request"]]],
+  ["Who we serve", [["Yacht owners", "/industries/private-yacht-owners"], ["Vessel owners", "/industries/commercial-vessel-owners"], ["Marine companies", "/industries/marine-companies"], ["Charter companies", "/industries/charter-companies"]]],
+  ["Resources", [["Blog", "/resources/blog"], ["FAQs", "/resources/faqs"], ["Downloads", "/resources/downloads"], ["Gallery", "/gallery"]]],
+  ["Legal", [["Privacy", "/privacy-policy"], ["Terms & conditions", "/terms-conditions"], ["Cookie policy", "/cookie-policy"]]],
+] as const;
+
+const socialLinks = [
+  ["LinkedIn", "https://www.linkedin.com", IconBrandLinkedin],
+  ["Instagram", "https://www.instagram.com", IconBrandInstagram],
+  ["Facebook", "https://www.facebook.com", IconBrandFacebook],
+] as const;
 
 export default function Footer() {
-  const scrollTo = (href: string) => {
-    const detailRoutes: Record<string, string> = {
-      "#who-we-are": "/who-we-are",
-      "#contact": "/contact",
-    };
-    if (detailRoutes[href]) {
-      router.push(detailRoutes[href]);
-      return;
-    }
-    if (pathname !== "/") {
-      router.push(`/${href}`);
-      return;
-    }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const pathname = usePathname();
-  const router = useRouter();
-
   return (
-    <footer className="relative border-t border-white/5" role="contentinfo">
-      <div className="relative overflow-hidden bg-navy-900 py-28 md:py-36">
-        <div className="absolute inset-0 maritime-grid opacity-15" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ocean-600/5 to-transparent" />
-
-        <div className="relative mx-auto max-w-5xl px-6 text-center lg:px-8">
-          <p className="section-label mb-6">Start Your Journey</p>
-          <h2 className="font-display text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-white">
-            Not sure where to start from.
-            <br />
-            <span className="text-ocean-300">Let us help you.</span>
-          </h2>
-          <a
-            href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
-            className="mt-12 inline-block"
-          >
-            <HoverBorderGradientStatic className="inline-flex items-center gap-3 text-base">
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              Call Us Now
-            </HoverBorderGradientStatic>
-          </a>
-        </div>
-      </div>
-
-      <div className="bg-navy-950 py-14">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="award-divider mb-10 w-full" />
-          <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-            <div className="text-center md:text-left">
-              <p className="font-display text-xl font-bold text-white">
-                {siteConfig.name}
-              </p>
-              <p className="mt-2 text-xs tracking-wider text-silver-300/40 uppercase">
-                &copy; {new Date().getFullYear()} {siteConfig.legalName}
-              </p>
-            </div>
-            <nav aria-label="Footer navigation">
-              <ul className="flex flex-wrap justify-center gap-8">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollTo(link.href);
-                      }}
-                      className="text-sm font-medium tracking-wide text-silver-300/65 transition-colors hover:text-ocean-400"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+    <footer className="relative overflow-hidden border-t border-white/[.08] bg-gradient-to-b from-navy-900 to-navy-950">
+      <div className="absolute inset-0 maritime-grid opacity-[.08]" aria-hidden="true" />
+      <MaritimeDecoration position="right" symbol="anchor" />
+      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-12 xl:grid-cols-[1.3fr_repeat(5,.8fr)]">
+          <div className="max-w-xs">
+            <div className="inline-flex rounded-xl bg-white p-2 shadow-sm"><Image src="/images/logo.png" alt="Marine Registration Services" width={200} height={54} className="h-10 w-auto object-contain" /></div>
+            <p className="mt-4 text-sm leading-6 text-silver-300/65">A Dubai-based maritime partner for registration, compliance and technical documentation.</p>
+            <Link href="/quote-request" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan-accent transition hover:text-white">Start your vessel route <IconArrowUpRight size={16}/></Link>
           </div>
+          {footerGroups.map(([title, items]) => <div key={title}><h2 className="text-[10px] font-bold uppercase tracking-[.18em] text-white/90">{title}</h2><ul className="mt-5 space-y-3">{items.map(([label, href]) => <li key={href}><Link href={href} className="text-sm text-silver-300/60 transition hover:text-cyan-accent">{label}</Link></li>)}</ul></div>)}
+        </div>
+
+        <div className="mt-14 grid gap-5 rounded-2xl border border-white/[.08] bg-white/[.035] p-5 sm:grid-cols-2 sm:items-center sm:p-6">
+          <div><p className="text-[10px] font-bold uppercase tracking-[.18em] text-cyan-accent">Get in touch</p><div className="mt-3 flex flex-col gap-2 text-sm text-silver-300/70 sm:flex-row sm:gap-5"><a href={`mailto:${siteConfig.email}`} className="inline-flex items-center gap-2 transition hover:text-white"><IconMail size={15} className="text-cyan-accent"/>{siteConfig.email}</a><a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="inline-flex items-center gap-2 transition hover:text-white"><IconPhone size={15} className="text-cyan-accent"/>{siteConfig.phone}</a></div></div><a href={`https://wa.me/${siteConfig.whatsappNumber}`} className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-navy-950 transition hover:-translate-y-0.5 hover:bg-white sm:justify-self-end"><IconBrandWhatsapp size={18}/> WhatsApp the team</a>
         </div>
       </div>
+      <div className="relative border-t border-white/[.08]"><div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-5 text-xs text-silver-300/45 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p><div className="flex items-center gap-3">{socialLinks.map(([label, href, Icon]) => <a key={label} href={href} aria-label={label} className="grid h-8 w-8 place-items-center rounded-full border border-white/10 text-silver-300/60 transition hover:border-cyan-accent/50 hover:text-cyan-accent"><Icon size={15}/></a>)}</div></div></div>
+      <a href={`https://wa.me/${siteConfig.whatsappNumber}`} aria-label="Chat with us on WhatsApp" className="fixed bottom-20 right-4 z-[110] grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-navy-950 shadow-[0_14px_34px_rgba(37,211,102,.25)] transition hover:scale-105 sm:bottom-5 sm:right-5"><IconBrandWhatsapp size={29} stroke={2.1}/></a>
     </footer>
   );
 }

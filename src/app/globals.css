@@ -14,8 +14,8 @@
   --color-silver-300: #c8d4e0;
   --color-silver-200: #e2e8f0;
   --color-silver-100: #f1f5f9;
-  --font-display: var(--font-syne);
-  --font-body: var(--font-dm-sans);
+  --font-display: "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Segoe UI", system-ui, sans-serif;
 }
 
 html {

@@ -10,6 +10,8 @@ import ProcessTimeline from "@/components/sections/ProcessTimeline";
 import ApprovedBy from "@/components/sections/ApprovedBy";
 import Footer from "@/components/sections/Footer";
 import Marquee from "@/components/ui/Marquee";
+import MarineRouteVisual from "@/components/sections/MarineRouteVisual";
+import FloatingRouteExperience from "@/components/sections/FloatingRouteExperience";
 
 const MARQUEE_ITEMS = [
   "Registration & Renewal",
@@ -27,6 +29,8 @@ export default function Home() {
       <main id="main-content">
         <PremiumHero />
         <Marquee items={MARQUEE_ITEMS} />
+        <MarineRouteVisual />
+        <FloatingRouteExperience />
         <PremiumCapabilities />
         <PremiumVesselRoutes />
         <PremiumEngineering />
