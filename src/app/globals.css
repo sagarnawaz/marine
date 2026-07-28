@@ -72,6 +72,26 @@ body {
   background-size: 60px 60px;
 }
 
+@keyframes luma-spin-ring {
+  0%,
+  100% { inset: 0 2.25rem 2.25rem 0; }
+  12.5% { inset: 0 2.25rem 0 0; }
+  25% { inset: 2.25rem 2.25rem 0 0; }
+  37.5% { inset: 2.25rem 0 0 0; }
+  50% { inset: 2.25rem 0 0 2.25rem; }
+  62.5% { inset: 0 0 0 2.25rem; }
+  75% { inset: 0 0 2.25rem 2.25rem; }
+  87.5% { inset: 0 0 2.25rem 0; }
+}
+
+.luma-spin-ring {
+  animation: luma-spin-ring 2.5s infinite;
+}
+
+.luma-spin-ring-delayed {
+  animation-delay: -1.25s;
+}
+
 a,
 button {
   -webkit-tap-highlight-color: transparent;

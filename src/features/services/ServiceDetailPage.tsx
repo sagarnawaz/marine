@@ -16,6 +16,9 @@ const serviceHeroImages: Record<string, [string, string]> = {
   "yacht-registration": ["/images/services/yacht-registration.png", "Luxury yacht underway in clear Gulf waters"],
   "boat-registration": ["/images/services/boat-registration.png", "Recreational boat on open water near the marina"],
   "commercial-vessel-registration": ["/images/services/commercial-vessel-registration.png", "Commercial vessel operating in a working harbour"],
+  "registration-renewal": ["/images/services/registration-renewal.png", "Marine professional reviewing yacht registration renewal documents"],
+  "ownership-transfer": ["/images/services/ownership-transfer.png", "Vessel ownership transfer documents exchanged at a marina"],
+  "foreign-flag-permit": ["/images/services/foreign-flag-permit.png", "Foreign-flagged yacht entering UAE waters"],
 };
 
 export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {

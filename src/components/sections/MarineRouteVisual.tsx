@@ -31,6 +31,7 @@ export default function MarineRouteVisual() {
               src="/images/marine-route-visual.png"
               alt="Top-down yacht following a teal navigation route across deep navy water"
               fill
+              unoptimized
               sizes="(max-width: 1024px) 100vw, 55vw"
               className="object-cover"
             />

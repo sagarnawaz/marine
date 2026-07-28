@@ -10,6 +10,8 @@ import {
   IconShieldCheck,
 } from "@tabler/icons-react";
 
+import { TextRotate } from "@/components/ui/text-rotate";
+
 const ease = [0.22, 1, 0.36, 1] as const;
 const HERO_IMAGE = {
   src: "/images/marine-hero.png",
@@ -52,6 +54,7 @@ export default function PremiumHero() {
           alt={HERO_IMAGE.alt}
           fill
           priority
+          unoptimized
           className="object-cover object-[66%_center]"
           sizes="100vw"
         />
@@ -93,12 +96,24 @@ export default function PremiumHero() {
               Maritime,
             </motion.span>
             <motion.span
-              className="block bg-gradient-to-r from-cyan-accent via-ocean-300 to-white bg-clip-text text-transparent"
+              className="block"
               initial={{ opacity: 0, y: 70 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.48, duration: 0.95, ease }}
             >
-              made certain.
+              <TextRotate
+                texts={[
+                  "made certain.",
+                  "made simple.",
+                  "made compliant.",
+                ]}
+                mainClassName="overflow-hidden bg-gradient-to-r from-cyan-accent via-ocean-300 to-white bg-clip-text text-transparent"
+                splitLevelClassName="overflow-hidden pb-[0.08em]"
+                staggerFrom="last"
+                staggerDuration={0.018}
+                rotationInterval={2800}
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              />
             </motion.span>
           </h1>
 

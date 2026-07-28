@@ -139,6 +139,7 @@ export function PremiumStory() {
                 src={marineImages.whoWeAre}
                 alt={marineImages.whoWeAreAlt}
                 fill
+                unoptimized
                 className="object-cover transition duration-1000 hover:scale-[1.035]"
                 sizes="(max-width: 1024px) 100vw, 44vw"
               />
@@ -309,6 +310,7 @@ export function PremiumVesselRoutes() {
                     src={route.image}
                     alt={route.alt}
                     fill
+                    unoptimized
                     className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 52vw"
                   />
@@ -388,6 +390,7 @@ export function PremiumEngineering() {
               src="/images/naval-survey.png"
               alt="Marine surveyor inspecting a commercial vessel in dry dock"
               fill
+              unoptimized
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />

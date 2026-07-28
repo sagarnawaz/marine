@@ -1,14 +1,16 @@
 "use client";
 
 import SectionHeading from "./SectionHeading";
-import { AnimatedTestimonials } from "@/components/ui/aceternity/animated-testimonials";
+import SimpleAnimatedTestimonials from "@/components/ui/SimpleAnimatedTestimonials";
 import { testimonials } from "@/data/site-content";
 
 export default function TestimonialCarousel() {
-  const formatted = testimonials.map((t) => ({
-    quote: t.quote,
-    name: t.author,
-    designation: t.role,
+  const formatted = testimonials.map((testimonial) => ({
+    id: testimonial.id,
+    content: testimonial.quote,
+    name: testimonial.author,
+    role: testimonial.role,
+    rating: 5,
   }));
 
   return (
@@ -20,7 +22,7 @@ export default function TestimonialCarousel() {
           index="05"
           className="mb-10 sm:mb-20"
         />
-        <AnimatedTestimonials testimonials={formatted} autoplay />
+        <SimpleAnimatedTestimonials testimonials={formatted} />
       </div>
     </section>
   );
