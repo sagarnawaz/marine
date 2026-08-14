@@ -1,0 +1,43 @@
+
+> marine-registration-services@1.0.0 dev
+> node scripts/run-next.cjs dev
+
+   ▲ Next.js 15.5.20
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.11:3000
+
+ ✓ Starting...
+ ✓ Ready in 7.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.3s (100 modules)
+ ✓ Compiled in 23.9s (720 modules)
+ GET /favicon.ico 307 in 29695ms
+ GET /icon.svg 200 in 29783ms
+ GET / 200 in 34691ms
+ GET / 200 in 19970ms
+ GET /icon.svg 200 in 190ms
+ GET / 200 in 1270ms
+ GET /icon.svg 200 in 76ms
+ GET /favicon.ico 307 in 96ms
+ ✓ Compiled in 17.5s (1645 modules)
+ GET / 200 in 2883ms
+ ○ Compiling /icon.svg ...
+ ✓ Compiled /icon.svg in 2.6s (932 modules)
+ ✓ Compiled (946 modules)
+ GET /icon.svg 200 in 11356ms
+ GET /favicon.ico 307 in 11386ms
+ GET /icon.svg 200 in 90ms
+ GET /icon.svg 200 in 171ms
+ GET /favicon.ico 307 in 235ms
+ GET /icon.svg 200 in 135ms
+ ✓ Compiled in 6.5s (1645 modules)
+ GET / 200 in 1453ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 786ms (942 modules)
+ ✓ Compiled (946 modules)
+ GET /favicon.ico 307 in 2106ms
+ GET /icon.svg 200 in 2153ms
+ GET /icon.svg 200 in 77ms
+ GET /icon.svg 200 in 40ms
+ GET /favicon.ico 307 in 40ms
+ GET /icon.svg 200 in 26ms

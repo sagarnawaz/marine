@@ -7,10 +7,11 @@ import MaritimeDecoration from "@/components/ui/MaritimeDecoration";
 import { siteConfig } from "@/data/site-content";
 
 const footerGroups = [
-  ["Company", [["About us", "/about-us"], ["Why choose us", "/why-choose-us"], ["Our process", "/our-process"], ["Careers", "/careers"]]],
+  ["Company", [["Who we are", "/#who-we-are"], ["Why choose us", "/why-choose-us"], ["Our process", "/our-process"], ["Careers", "/careers"]]],
   ["Services", [["All services", "/services"], ["Registration", "/services/vessel-registration"], ["Naval architecture", "/services/naval-architecture"], ["Request a quote", "/quote-request"]]],
   ["Who we serve", [["Yacht owners", "/industries/private-yacht-owners"], ["Vessel owners", "/industries/commercial-vessel-owners"], ["Marine companies", "/industries/marine-companies"], ["Charter companies", "/industries/charter-companies"]]],
-  ["Resources", [["Blog", "/resources/blog"], ["FAQs", "/resources/faqs"], ["Downloads", "/resources/downloads"], ["Gallery", "/gallery"]]],
+  ["Documents", [["Private documents", "/resources/downloads#private-documents"], ["Tourist documents", "/resources/downloads#tourist-documents"], ["Commercial documents", "/resources/downloads#commercial-documents"], ["All documents", "/resources/downloads"]]],
+  ["Resources", [["Blog", "/resources/blog"], ["FAQs", "/resources/faqs"], ["Gallery", "/gallery"]]],
   ["Legal", [["Privacy", "/privacy-policy"], ["Terms & conditions", "/terms-conditions"], ["Cookie policy", "/cookie-policy"]]],
 ] as const;
 
@@ -26,7 +27,7 @@ export default function Footer() {
       <div className="absolute inset-0 maritime-grid opacity-[.08]" aria-hidden="true" />
       <MaritimeDecoration position="right" symbol="anchor" />
       <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div className="grid gap-12 xl:grid-cols-[1.3fr_repeat(5,.8fr)]">
+        <div className="grid gap-12 xl:grid-cols-[1.3fr_repeat(6,.75fr)]">
           <div className="max-w-xs">
             <div className="inline-flex rounded-xl bg-white p-2 shadow-sm"><Image src="/images/logo.png" alt="Marine Registration Services" width={200} height={54} className="h-10 w-auto object-contain" /></div>
             <p className="mt-4 text-sm leading-6 text-silver-300/65">A Dubai-based maritime partner for registration, compliance and technical documentation.</p>

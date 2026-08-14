@@ -1,2 +1,5 @@
-import Link from "next/link"; import Header from "@/components/sections/Header"; import Footer from "@/components/sections/Footer"; import DetailHero from "@/components/sections/DetailHero";
-export default function Resources(){const links=[["Blog","Guides and practical maritime insights.","/resources/blog"],["FAQs","Straight answers to common questions.","/resources/faqs"],["Downloads","Useful checklists and document guides.","/resources/downloads"]];return <><Header/><main id="main-content"><DetailHero eyebrow="Resources" breadcrumb="Resources" title="Useful knowledge for every voyage." description="A growing library of clear, practical marine guidance." image="/images/marine-hero.png" imageAlt="Yacht cruising on open water"/><section className="py-20"><div className="mx-auto grid max-w-6xl gap-4 px-5 md:grid-cols-3">{links.map(([t,d,h])=><Link href={h} key={t} className="rounded-2xl border border-white/10 bg-navy-900/50 p-7 hover:border-cyan-accent/50"><h2 className="font-display text-2xl text-white">{t}</h2><p className="mt-4 text-sm leading-7 text-silver-300/65">{d}</p><span className="mt-8 block text-sm font-bold text-cyan-accent">Explore →</span></Link>)}</div></section></main><Footer/></>}
+import { redirect } from "next/navigation";
+
+export default function Resources() {
+  redirect("/resources/downloads");
+}

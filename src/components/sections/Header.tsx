@@ -9,12 +9,12 @@ import { IconChevronDown, IconMenu2, IconX } from "@tabler/icons-react";
 
 const primaryLinks = [
   ["Home", "/"],
-  ["About", "/about-us"],
   ["Why choose us", "/why-choose-us"],
   ["Services", "/services"],
   ["Industries", "/industries"],
-  ["Resources", "/resources"],
+  ["Documents", "/resources/downloads"],
   ["Blog", "/resources/blog"],
+  ["FAQs", "/resources/faqs"],
   ["Gallery", "/gallery"],
   ["Contact", "/contact"],
 ] as const;

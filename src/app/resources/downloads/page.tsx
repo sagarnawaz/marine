@@ -1,6 +1,7 @@
 import DetailHero from "@/components/sections/DetailHero";
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/sections/Header";
+import ResourcesSidebar from "@/components/sections/ResourcesSidebar";
 
 interface DownloadFile {
   title: string;
@@ -134,24 +135,30 @@ export default function Downloads() {
       <Header />
       <main id="main-content">
         <DetailHero
-          eyebrow="Resources"
-          breadcrumb="Downloads"
-          title="Useful guides, ready when you are."
-          description="Practical starter documents designed to make your first conversation and next steps easier."
+          eyebrow="Documents"
+          breadcrumb="Documents"
+          title="PDF requirements, ready when you are."
+          description="Private, tourist, and commercial vessel documents organized by category."
           image="/images/marine-experts.png"
           imageAlt="Marine specialists preparing documentation"
         />
-        <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <section className="mx-auto grid max-w-7xl gap-8 px-5 py-20 sm:px-6 sm:py-28 lg:grid-cols-[17rem_1fr] lg:px-8">
+          <ResourcesSidebar />
           <div className="space-y-14">
             {downloadSections.map((section) => (
-              <section key={section.title} aria-labelledby={`${section.title}-downloads`}>
+              <section
+                key={section.title}
+                id={`${section.title.toLowerCase()}-documents`}
+                aria-labelledby={`${section.title.toLowerCase()}-documents-title`}
+                className="scroll-mt-28"
+              >
                 <div className="flex flex-col gap-3 border-b border-white/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-accent">
-                      Download section
+                      Document category
                     </p>
                     <h2
-                      id={`${section.title}-downloads`}
+                      id={`${section.title.toLowerCase()}-documents-title`}
                       className="mt-2 font-display text-3xl font-bold text-white"
                     >
                       {section.title}

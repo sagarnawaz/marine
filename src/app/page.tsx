@@ -12,6 +12,8 @@ import Footer from "@/components/sections/Footer";
 import Marquee from "@/components/ui/Marquee";
 import MarineRouteVisual from "@/components/sections/MarineRouteVisual";
 import FloatingRouteExperience from "@/components/sections/FloatingRouteExperience";
+import DownloadsHomeSection from "@/components/sections/DownloadsHomeSection";
+import HomeWhoWeAreSection from "@/components/sections/HomeWhoWeAreSection";
 
 const MARQUEE_ITEMS = [
   "Registration & Renewal",
@@ -29,10 +31,12 @@ export default function Home() {
       <main id="main-content" className="min-w-0 overflow-x-clip">
         <PremiumHero />
         <Marquee items={MARQUEE_ITEMS} />
+        <HomeWhoWeAreSection />
         <MarineRouteVisual />
         <FloatingRouteExperience />
         <PremiumCapabilities />
         <PremiumVesselRoutes />
+        <DownloadsHomeSection />
         <PremiumEngineering />
         <ProcessTimeline />
         <TestimonialCarousel />
