@@ -5,11 +5,7 @@ import { useState } from "react";
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/sections/Header";
 import DetailHero from "@/components/sections/DetailHero";
-import {
-  Gallery,
-  GalleryGrid,
-  GalleryImage,
-} from "@/components/ui/shared-element-gallery";
+import ImageGallery from "@/components/ui/image-gallery";
 
 const galleryImages = [
   ["marine-hero", "/images/marine-hero.png", "Yachts", "Luxury yacht cruising on open water"],
@@ -17,7 +13,6 @@ const galleryImages = [
   ["foreign-yacht", "/images/foreign-yacht.png", "Yachts", "Foreign yacht in UAE waters"],
   ["naval-survey", "/images/naval-survey.png", "Technical", "Naval survey and vessel documentation"],
   ["marine-experts", "/images/marine-experts.png", "Technical", "Marine experts carrying out technical work"],
-  ["marine-route", "/images/marine-route-visual.png", "Technical", "Marine registration route visualization"],
   ["yacht-registration", "/images/services/yacht-registration.png", "Yachts", "Yacht registration services"],
   ["boat-registration", "/images/services/boat-registration.png", "Yachts", "Boat registration services"],
   ["commercial-registration", "/images/services/commercial-vessel-registration.png", "Commercial", "Commercial vessel registration"],
@@ -40,19 +35,23 @@ const galleryImages = [
   ["safety-equipment", "/images/services/safety-equipment.png", "Safety", "Marine safety equipment inspection"],
   ["fire-safety", "/images/services/fire-safety-plans.png", "Safety", "Vessel fire safety plans"],
   ["marine-insurance", "/images/services/marine-insurance.png", "Commercial", "Marine insurance support"],
-  ["og-artwork", "/og-image.jpg", "Brand", "Marine Registration Services brand artwork"],
+  ["marine-survey-generated", "/images/services/marine-survey-generated.png", "Technical", "Generated marine survey inspection scene"],
+  ["annual-survey-generated", "/images/services/annual-survey-generated.png", "Technical", "Generated annual survey coordination scene"],
+  ["safety-equipment-inspection-generated", "/images/services/safety-equipment-inspection-generated.png", "Safety", "Generated safety equipment inspection scene"],
+  ["annual-inspection-generated", "/images/services/annual-inspection-generated.png", "Technical", "Generated annual vessel inspection scene"],
+  ["naval-architecture-generated", "/images/services/naval-architecture-generated.png", "Engineering", "Generated naval architecture planning scene"],
+  ["technical-drawings-generated", "/images/services/technical-drawings-generated.png", "Engineering", "Generated technical drawings review scene"],
+  ["stability-booklet-generated", "/images/services/stability-booklet-generated.png", "Stability", "Generated stability booklet preparation scene"],
+  ["classification-services-generated", "/images/services/classification-services-generated.png", "Engineering", "Generated classification services coordination scene"],
+  ["tdra-radio-license-generated", "/images/services/tdra-radio-license-generated.png", "Compliance", "Generated TDRA radio license equipment scene"],
+  ["mmsi-registration-generated", "/images/services/mmsi-registration-generated.png", "Compliance", "Generated MMSI registration equipment scene"],
+  ["yacht-insurance-generated", "/images/services/yacht-insurance-generated.png", "Commercial", "Generated yacht insurance document review scene"],
+  ["berthing-assistance-generated", "/images/services/berthing-assistance-generated.png", "Commercial", "Generated marina berthing assistance scene"],
 ] as const;
 
 const categories = [
   "All",
   ...Array.from(new Set(galleryImages.map(([, , category]) => category))),
-] as const;
-
-const aspectClasses = [
-  "aspect-[4/3]",
-  "aspect-[3/4]",
-  "aspect-square",
-  "aspect-[5/4]",
 ] as const;
 
 type Category = (typeof categories)[number];
@@ -63,6 +62,11 @@ export default function GalleryPage() {
     activeCategory === "All"
       ? galleryImages
       : galleryImages.filter(([, , category]) => category === activeCategory);
+  const galleryItems = visibleImages.map(([id, src, , alt]) => ({
+    id,
+    src,
+    alt,
+  }));
 
   return (
     <>
@@ -92,8 +96,8 @@ export default function GalleryPage() {
               Every angle of our work.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-silver-200/70">
-              Browse all {galleryImages.length} images. Tap to expand and drag
-              vertically or press Escape to close.
+              Browse all {galleryImages.length} images. Hover or tap an image
+              to expand it.
             </p>
           </div>
 
@@ -118,19 +122,7 @@ export default function GalleryPage() {
             ))}
           </div>
 
-          <Gallery>
-            <GalleryGrid className="mt-10">
-              {visibleImages.map(([id, src, , alt], index) => (
-                <GalleryImage
-                  key={id}
-                  id={id}
-                  src={src}
-                  alt={alt}
-                  className={aspectClasses[index % aspectClasses.length]}
-                />
-              ))}
-            </GalleryGrid>
-          </Gallery>
+          <ImageGallery images={galleryItems} className="mt-10" />
         </section>
       </main>
       <Footer />

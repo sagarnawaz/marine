@@ -79,7 +79,7 @@ export function GalleryGrid({
   return (
     <div
       className={cn(
-        "columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4",
+        "columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4 [column-fill:auto]",
         className,
       )}
     >
@@ -108,7 +108,7 @@ export function GalleryImage({
       whileTap={{ scale: 0.96 }}
       transition={spring}
       className={cn(
-        "group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-navy-900 text-left shadow-lg cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-accent",
+        "group relative mb-4 inline-block w-full break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-navy-900 text-left shadow-lg cursor-zoom-in focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-accent",
         className,
       )}
       onClick={() => context.setSelectedImage({ id, src, alt })}

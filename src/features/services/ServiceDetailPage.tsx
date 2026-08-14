@@ -19,6 +19,18 @@ const serviceHeroImages: Record<string, [string, string]> = {
   "registration-renewal": ["/images/services/registration-renewal.png", "Marine professional reviewing yacht registration renewal documents"],
   "ownership-transfer": ["/images/services/ownership-transfer.png", "Vessel ownership transfer documents exchanged at a marina"],
   "foreign-flag-permit": ["/images/services/foreign-flag-permit.png", "Foreign-flagged yacht entering UAE waters"],
+  "draft-survey": ["/images/services/marine-survey-generated.png", "Marine surveyor inspecting a yacht hull at a UAE marina"],
+  "annual-survey": ["/images/services/annual-survey-generated.png", "Marine professional reviewing annual survey documents beside a yacht"],
+  "safety-equipment-inspection": ["/images/services/safety-equipment-inspection-generated.png", "Marine inspector checking yacht safety equipment on deck"],
+  "annual-inspection": ["/images/services/annual-inspection-generated.png", "Marine inspector checking yacht fittings during an annual inspection"],
+  "naval-architecture": ["/images/services/naval-architecture-generated.png", "Naval architect reviewing yacht plans and a vessel model"],
+  "general-arrangements": ["/images/services/technical-drawings-generated.png", "Marine technician reviewing technical yacht drawings at a drafting desk"],
+  "trim-stability": ["/images/services/stability-booklet-generated.png", "Naval architect reviewing yacht stability documentation and loading plans"],
+  "classification-services": ["/images/services/classification-services-generated.png", "Marine consultant coordinating classification documents with a surveyor"],
+  "tdra-radio-license": ["/images/services/tdra-radio-license-generated.png", "Marine compliance specialist checking yacht radio equipment"],
+  "mmsi-registration": ["/images/services/mmsi-registration-generated.png", "Marine technician verifying MMSI setup on yacht communication equipment"],
+  "marine-insurance": ["/images/services/yacht-insurance-generated.png", "Marine insurance coordinator reviewing yacht documents with an owner"],
+  "berthing-assistance": ["/images/services/berthing-assistance-generated.png", "Marina coordinator reviewing berth arrangements beside a yacht"],
 };
 
 export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
